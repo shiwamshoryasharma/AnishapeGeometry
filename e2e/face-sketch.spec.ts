@@ -27,8 +27,17 @@ test('canceling a sketch retains the camera and projection',async({page},info)=>
  await page.goto('/#projects');await page.getByRole('button',{name:'New project',exact:true}).click();await page.getByRole('dialog').getByRole('button',{name:'Create project',exact:true}).click();await ready(page)
  await page.getByRole('button',{name:'Create sketch',exact:true}).click();await page.getByRole('button',{name:'Sketch on XY plane',exact:true}).click();await page.getByRole('button',{name:'Finish sketch',exact:true}).click();await ready(page);await page.getByRole('button',{name:'Extrude',exact:true}).click();await page.getByRole('button',{name:'Apply',exact:true}).click();await ready(page)
  await expect(page.getByTestId('model-volume')).toHaveText('24000.000 mm³');await page.getByRole('button',{name:'RIGHT',exact:true}).click();await page.getByLabel('Projection',{exact:true}).selectOption('perspective');await page.mouse.move(20,20)
- // Hide the complete cube overlay (including its shadow) to compare camera pixels independently of DOM antialiasing.
- const canvas=page.getByLabel('3D model viewport. Drag to orbit, right-drag to pan, scroll to zoom.',{exact:true});const before=await canvas.screenshot({path:info.outputPath('camera-before.png'),animations:'disabled',style:'.orientation-widget{visibility:hidden!important}'})
- await page.getByRole('button',{name:'Sketch',exact:true}).click();await page.getByRole('button',{name:'Cancel sketch',exact:true}).click();await page.mouse.move(20,20)
- await expect(page.getByLabel('Projection',{exact:true})).toHaveValue('perspective');expect((await canvas.screenshot({path:info.outputPath('camera-after.png'),animations:'disabled',style:'.orientation-widget{visibility:hidden!important}'})).equals(before)).toBe(true)
+ // Locator screenshots include overlapping HTML. Exclude the UI so compositor
+ // antialiasing on controls cannot masquerade as a camera or geometry change.
+ const canvas=page.getByLabel('3D model viewport. Drag to orbit, right-drag to pan, scroll to zoom.',{exact:true})
+ const screenshotOptions={animations:'disabled' as const,style:'.orientation-widget,.viewport-top,.viewport-navigation{visibility:hidden!important}'}
+ const before=await canvas.screenshot({...screenshotOptions,path:info.outputPath('camera-before.png')})
+ for(const stage of ['plane-picker','drawing'] as const){
+  await page.getByRole('button',{name:'Sketch',exact:true}).click()
+  if(stage==='drawing')await page.getByRole('button',{name:'Sketch on XY plane',exact:true}).click()
+  await page.getByRole('button',{name:'Cancel sketch',exact:true}).click();await page.mouse.move(20,20)
+  await expect(page.getByLabel('Projection',{exact:true})).toHaveValue('perspective')
+  await expect(page.getByLabel('Standard view',{exact:true})).toHaveValue('Right')
+  expect((await canvas.screenshot({...screenshotOptions,path:info.outputPath('camera-after-'+stage+'.png')})).equals(before)).toBe(true)
+ }
 })
