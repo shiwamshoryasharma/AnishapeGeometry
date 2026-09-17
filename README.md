@@ -1,68 +1,113 @@
-# AnishapeGeometry
+<div align="center">
 
-AnishapeGeometry is an early-stage CAD and simulation project for building geometry,
-creating simulation assets, and developing robotics workflows in one desktop environment.
-The long-term direction is a FreeCAD-like modeling tool connected to custom simulation,
-NVIDIA Isaac, ROS, and URDF asset creation, free for personal, noncommercial use.
+<img src="public/favicon.svg" width="88" height="88" alt="AnishapeGeometry logo" />
 
-## Where the project starts
+<h1>AnishapeGeometry</h1>
 
-The first development phase is CAD tooling: sketches, constraints, editable solid
-features, and a foundation for building assets. These tools will evolve over time as
-simulation and robotics workflows take shape.
+<p><strong>From geometry to simulation.</strong></p>
+<p>A desktop CAD and simulation environment in development.<br />Build geometry. Create simulation assets. Connect robotics workflows.</p>
 
-The current prototype includes sketch drawing and constraints, solid modeling, feature
-history, local project persistence, and STEP/STL export. It is still under active
-development: bugs remain, several CAD features are incomplete, and it is not a finished
-engineering or simulation suite. The current landing page is temporary.
+[![Validate CAD milestone](https://github.com/shiwamshoryasharma/AnishapeGeometry/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/shiwamshoryasharma/AnishapeGeometry/actions/workflows/ci.yml)
+[![Stage: CAD prototype](https://img.shields.io/badge/stage-CAD_prototype-344b37?style=flat-square)](#the-first-chapter-cad)
+[![License: personal noncommercial](https://img.shields.io/badge/license-personal_noncommercial-52687a?style=flat-square)](LICENSE)
 
-## Future scope and direction
+<p>
+<a href="#the-idea">The idea</a> ·
+<a href="#where-it-is-going">Roadmap</a> ·
+<a href="#built-toward-the-desktop">Desktop direction</a> ·
+<a href="#explore-the-project">Documentation</a>
+</p>
 
-The near-term simulation goal is to build usable assets with CAD support, then bring
-those assets into simulation and robotics workflows.
+</div>
 
-| Area | Direction |
-| --- | --- |
-| CAD | Develop a FreeCAD-like tool with richer sketching, reliable modeling, and editable asset construction. |
-| Custom simulation | Add focused simulation workflows around the assets created in the CAD environment. |
-| NVIDIA Isaac connection | Connect asset creation and simulation workflows with NVIDIA Isaac. |
-| ROS integration | Connect models and simulation workflows to ROS-based robotics systems. |
-| URDF building | Build robot descriptions with links, joints, geometry, and relevant physical properties for simulation. |
+---
 
-These are planned capabilities. Isaac connectivity, ROS integration, URDF building, and
-the custom simulation system are not implemented in the current CAD prototype.
+## The idea
 
-## Planned desktop architecture
+AnishapeGeometry brings **CAD, asset creation, and simulation** into one evolving
+project. The goal is a FreeCAD-like modeling environment where geometry becomes the
+starting point for custom simulation and robotics workflows.
 
-The intended product is a desktop CAD and simulation environment. The current browser
-runtime is a development prototype; it does not define the final product architecture.
+It starts with the tools needed to build a part. Over time, that foundation will grow
+toward simulation-ready assets, robot descriptions, and connections to NVIDIA Isaac
+and ROS. The project is free for **personal, noncommercial use** under its [license](LICENSE).
 
-- **Electron wrapper:** package the interface into a desktop application.
-- **Embedded Python:** provide a local runtime for automation, geometry-related workflows,
-  and simulation or robotics integrations.
-- **Custom Lua scripting:** support project-specific scripting and extension workflows.
-- **Vulkan:** provide native GPU access through a dedicated graphics/compute layer.
+## The first chapter: CAD
 
-The Electron shell, embedded Python, Lua runtime, and Vulkan layer are planned work.
-Today, the prototype uses React/TypeScript, OpenCascade WebAssembly for geometry,
-planeGCS for sketch constraints, and Three.js for viewport rendering. The desktop and
-native runtime boundaries will be developed as the project evolves.
+The first phase focuses on sketching and solid modeling. These are the foundations
+for building useful assets, and they will continue to evolve alongside the project.
 
-## Documentation
+| Sketch with intent | Build editable geometry | Keep the working model |
+| :--- | :--- | :--- |
+| Lines, points, profiles, constraints, and origin references. | Extrusions, solid features, transformations, and editable feature history. | Local project files, undo/redo, and STEP/STL export. |
 
-| Category | Document |
-| --- | --- |
-| Current tools and limitations | [CAD capabilities](docs/CAD-CAPABILITIES.md) |
-| Installation and local execution | [Installation](docs/INSTALLATION.md) |
-| Modeling and project files | [Usage](docs/USAGE.md) |
-| Architecture, checks, and development | [Development](docs/DEVELOPMENT.md) |
-| Dependency licenses | [Third-party notices](THIRD_PARTY_NOTICES.md) |
+**Current state:** an early CAD prototype with working tools, remaining bugs, and an
+unfinished feature set. It is not yet a complete CAD or simulation suite. The current
+landing page is temporary.
 
-## License
+[Explore the current CAD tools and limitations →](docs/CAD-CAPABILITIES.md)
 
-AnishapeGeometry's original code is source-available under the
-[AnishapeGeometry Personal Noncommercial License](LICENSE).
-Personal learning, experimentation, and private projects are permitted. Commercial use,
-client delivery, and redistribution of software or builds require prior written permission,
-subject to the specific exceptions in the license. Third-party components retain their
-own licenses. This is not an OSI-approved open-source license.
+## Where it is going
+
+**CAD foundations → simulation assets → connected robotics workflows**
+
+The near-term simulation focus is practical: use CAD tooling to build assets, then
+bring those assets into focused simulation workflows.
+
+| Direction | What it adds | Stage |
+| :--- | :--- | :--- |
+| **FreeCAD-like CAD tooling** | Richer sketching, more reliable solid modeling, and editable asset construction. | In development |
+| **Custom simulation** | Simulation workflows built around assets created in the CAD environment. | Planned |
+| **NVIDIA Isaac connection** | A connection between asset creation and Isaac simulation workflows. | Planned |
+| **ROS integration** | Connect models and simulation workflows to ROS-based robotics systems. | Planned |
+| **URDF building** | Robot descriptions with links, joints, geometry, and relevant physical properties. | Planned |
+
+Isaac connectivity, ROS integration, URDF building, and custom simulation are future
+capabilities. They are not available in the current prototype.
+
+## Built toward the desktop
+
+The intended product is a **desktop CAD and simulation environment**, not a web-app
+end state. The current browser runtime lets the CAD foundation develop while the
+native application architecture takes shape.
+
+| Planned layer | Responsibility |
+| :--- | :--- |
+| **Electron wrapper** | Package the interface into a desktop application. |
+| **Embedded Python** | A local runtime for automation, asset workflows, simulation, and robotics integrations. |
+| **Custom Lua scripting** | Project-specific scripting and extension workflows. |
+| **Vulkan** | Native GPU access through a dedicated graphics and compute layer. |
+
+These layers are planned; they are not implemented yet. The current prototype uses
+React and TypeScript for the interface, OpenCascade WebAssembly for geometry,
+planeGCS for sketch constraints, and Three.js for viewport rendering.
+
+## Explore the project
+
+Keep the project overview here; choose a focused guide for the details.
+
+| I want to… | Read |
+| :--- | :--- |
+| See what works today | [CAD capabilities and limitations](docs/CAD-CAPABILITIES.md) |
+| Set up the current prototype | [Installation](docs/INSTALLATION.md) |
+| Model parts and manage files | [Usage](docs/USAGE.md) |
+| Understand the code and run checks | [Development](docs/DEVELOPMENT.md) |
+| Review dependency licensing | [Third-party notices](THIRD_PARTY_NOTICES.md) |
+
+## Personal use, clearly defined
+
+Original AnishapeGeometry code is source-available under the
+**[AnishapeGeometry Personal Noncommercial License](LICENSE)**.
+
+- **Permitted:** personal learning, experimentation, and private projects.
+- **Requires prior written permission:** commercial use, client delivery, and
+  redistribution of software or builds, subject to the exceptions in the license.
+- **Third-party components:** retain their own licenses and permissions.
+
+This is a personal-use, source-available project, not an OSI-approved open-source license.
+
+---
+
+<div align="center">
+<sub>CAD first. Simulation and robotics ahead.</sub>
+</div>
