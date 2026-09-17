@@ -1,0 +1,135 @@
+:root{--text:#243044;--text-muted:#4b5b70;--surface:#f1f4f7;--panel:#e4e9ef;--raised:#ffffff;--input:#fafbfd;--border:#b9c5d2;--hover:#d7e2ec;--active:#c5d9e8;--strong:#315847;--on-strong:#ffffff;--canvas:#e0e5eb;--grid:#c7ced8;--grid-major:#929faf;--body:#a7b5c5;--body-preview:#b4c6ce;--edge:#354457;--sketch-body:#c1cbd6;--sketch-blue:#17669f;--selection:#c78527;--axis-x:#ac302e;--axis-y:#287042;--axis-z:#245eaa;--axis-x-bg:#f3dcd9;--axis-y-bg:#d7e9de;--axis-z-bg:#d8e5f6;--warning-bg:#fff0d5;--warning:#7d4814;--error-bg:#fae4e3;--error:#972c28;--ink:var(--text);--muted:var(--text-muted);--cream:var(--surface);--line:var(--border);--green:var(--strong);color:var(--text);background:var(--surface)}
+:root[data-theme=dark]{--text:#edf2f9;--text-muted:#b4c3d5;--surface:#1b2531;--panel:#222e3d;--raised:#293849;--input:#141e2a;--border:#4a5d72;--hover:#35475c;--active:#345470;--strong:#37634f;--on-strong:#ffffff;--canvas:#202935;--grid:#344354;--grid-major:#61758d;--body:#93a7bc;--body-preview:#a4bbca;--edge:#152231;--sketch-body:#394b60;--sketch-blue:#80c9ff;--selection:#edb04f;--axis-x:#ffaca5;--axis-y:#8be4ac;--axis-z:#9cc8ff;--axis-x-bg:#603d43;--axis-y-bg:#294d40;--axis-z-bg:#2c4667;--warning-bg:#493720;--warning:#ffdba3;--error-bg:#4d292c;--error:#ffb4ae;--accent:#b66643}
+body,.loading-page,.landing,.projects-page{background:var(--surface);color:var(--text)}
+button,a,input,select,textarea{outline-color:var(--sketch-blue)}
+.button,.dialog,.command-menu,.command-search,.parameter-editor{background:var(--raised);border-color:var(--border);color:var(--text)}
+.button:hover:not(:disabled),.icon-button:hover:not(:disabled){background:var(--hover)}
+.button-dark,.button-accent,.button-dark:hover:not(:disabled),.button-accent:hover:not(:disabled){background:var(--strong);border-color:var(--strong);color:var(--on-strong)}
+.button-subtle,.notice,.new-project-icon,.constraint-info{background:var(--panel);color:var(--text-muted)}
+.field input,.field select,.parameter-editor,.entity-dimensions input{background:var(--input);color:var(--text);border-color:var(--border)}
+.field small,.dialog-description,.guide-content,.loading-page p,.notice,.success-message,.eyebrow{color:var(--text-muted)}
+.guide-content strong,.guide-content h3,.brand>svg{color:var(--text)}
+.error-text,.error-message{color:var(--error)}
+.editor-shell{background:var(--surface);color:var(--text);font-size:13px}
+.editor-header,.workspace-tabs,.cad-toolbar,.editor-status,.feature-panel,.inspector{background:var(--surface);border-color:var(--border);color:var(--text)}
+.workspace-tabs,.panel-title{background:var(--panel);border-color:var(--border)}
+.editor-header{height:55px}.editor-header-right{gap:9px}
+.editor-shell .panel-title,.editor-shell .panel-title>span,.editor-shell .workspace-tabs button,.editor-shell .document-subtitle,.editor-shell .save-label,.editor-shell .editor-status,.editor-shell .field-help,.editor-shell .inspector-intro p,.editor-shell .sketch-palette-options,.editor-shell .sketch-support-card small,.editor-shell .field-label,.editor-shell .property-row,.editor-shell .measurement>span,.editor-shell .bound-value,.editor-shell .feature-bottom,.editor-shell .feature-bottom small,.editor-shell .remove-feature small,.editor-shell .view-mode,.editor-shell .viewport-navigation select,.editor-shell .viewport-navigation .icon-button,.editor-shell .entity-dimensions label{color:var(--text-muted)}
+.editor-shell .panel-title{font-size:10px}.editor-shell .panel-title>span{font-size:9px}.editor-shell .field-help,.editor-shell .inspector-intro p{font-size:11px}.editor-shell .measurement>span{font-size:11px}
+.editor-shell .inspector-intro h3,.editor-shell .measurement strong,.editor-shell .property-row strong,.editor-shell .field>span,.editor-shell .cad-tool-icon{color:var(--text)}
+.editor-shell .tool-button,.editor-shell .cad-tree-label,.editor-shell .cad-tree-plane,.editor-shell .cad-tree-group-row>button,.editor-shell .cad-tree-references button,.editor-shell .tree-row-action{color:var(--text)}
+.editor-shell .cad-tree-label,.editor-shell .cad-tree-plane{font-size:11px}.editor-shell .cad-tree-references button{font-size:10px}.editor-shell .cad-tree-group-row small{color:var(--text-muted);border-color:var(--border)}
+.editor-shell .cad-tree-children,.editor-shell .cad-tree-references,.editor-shell .field,.editor-shell .measurement,.editor-shell .property-row,.editor-shell .remove-feature,.editor-shell .sketch-palette-options,.editor-shell .ribbon-group{border-color:var(--border)}
+.editor-shell .cad-tree-feature-row.active,.editor-shell .cad-tree-body.active,.editor-shell .selection-toggle button.selected,.editor-shell .tool-button.active,.editor-shell .workspace-tabs .active{background:var(--active);color:var(--text);border-color:var(--border)}
+.editor-shell .cad-tree-group-row:hover,.editor-shell .cad-tree-label:hover,.editor-shell .cad-tree-plane:hover,.editor-shell .tool-button:hover:not(:disabled),.editor-shell .tree-row-action:hover{background:var(--hover)}
+.editor-shell .ribbon-group>small{color:var(--text-muted);font-size:9px}.editor-shell .cad-ribbon .tool-button{font-size:11px}.editor-shell .cad-ribbon.sketch-ribbon{background:var(--panel);border-color:var(--border)}
+.editor-shell .tool-button.sketch-finish{background:var(--strong);color:white}.editor-shell .tool-button.sketch-finish svg{color:white}
+.editor-shell .selection-toggle,.editor-shell .viewport-navigation,.editor-shell .sketch-tip,.editor-shell .sketch-state,.editor-shell .sketch-support-card,.editor-shell .sketch-plane-picker,.editor-shell .compute-badge,.editor-shell .canvas-inputs,.editor-shell .entity-dimensions,.editor-shell .empty-workspace{background:var(--surface);color:var(--text);border-color:var(--border)}
+.editor-shell .selection-toggle button,.editor-shell .sketch-tip strong,.editor-shell .sketch-tip span,.editor-shell .sketch-state,.editor-shell .sketch-plane-picker p,.editor-shell .empty-workspace p,.editor-shell .empty-workspace h2{color:var(--text)}
+.editor-shell .viewport-region,.editor-shell .entity-sketch-canvas,.editor-shell .sketch-canvas{background:var(--canvas)}
+.editor-shell .canvas-inputs input,.editor-shell .gizmo-value-editor input{background:var(--input);color:var(--text);border-color:var(--border)}
+.editor-shell .canvas-inputs label,.editor-shell .canvas-inputs small,.editor-shell .gizmo-value-editor span{color:var(--text-muted)}
+.editor-shell .gizmo-value-editor{background:var(--surface);border-color:var(--border)}
+.editor-shell .kernel-tag{background:var(--panel);color:var(--text)}
+.editor-shell .editor-error,.editor-shell .entity-sketch-error{background:var(--warning-bg);color:var(--warning);border-color:var(--warning)}
+.editor-shell .edge-list label,.editor-shell .body-tools{background:var(--surface);color:var(--text);border-color:var(--border)}
+.editor-shell .body-swatch{background:var(--body);border-color:var(--border)}
+.editor-shell .orientation-widget{top:auto;bottom:18px;right:19px;width:118px;filter:drop-shadow(0 3px 5px #0002)}
+.editor-shell .orientation-cube{width:118px;height:114px}.editor-shell .orientation-caption{margin-top:8px}.editor-shell .orientation-caption button{background:var(--surface);color:var(--text);border:1px solid var(--border);width:29px;height:29px}
+.editor-shell .cube-turn{background:var(--surface);color:var(--text);width:20px;height:20px;border:1px solid var(--border)}
+.editor-shell .cube-turn-left{left:-3px;top:51px}.editor-shell .cube-turn-right{right:-3px;top:51px}.editor-shell .cube-turn-up{left:49px;top:-1px}.editor-shell .cube-turn-down{left:49px;bottom:-4px}
+.editor-shell .cube-face[data-coordinate=X] polygon{fill:var(--axis-x-bg);stroke:var(--axis-x)}.editor-shell .cube-face[data-coordinate=Y] polygon{fill:var(--axis-y-bg);stroke:var(--axis-y)}.editor-shell .cube-face[data-coordinate=Z] polygon{fill:var(--axis-z-bg);stroke:var(--axis-z)}
+.editor-shell .cube-face text{font:700 16px 'Segoe UI',sans-serif;opacity:1;letter-spacing:0}.editor-shell .cube-face[data-coordinate=X] text{fill:var(--axis-x)}.editor-shell .cube-face[data-coordinate=Y] text{fill:var(--axis-y)}.editor-shell .cube-face[data-coordinate=Z] text{fill:var(--axis-z)}
+.editor-shell .cube-face:hover polygon,.editor-shell .cube-face:focus-visible polygon,.editor-shell .cube-face.active polygon{stroke-width:3;filter:brightness(1.12)}
+.site-header,.project-card,.project-card-body,.product-preview,.preview-title,.preview-status,.preview-tree,.format-card,.capability-card,.workflow-card,.privacy-card,.site-nav.open{background:var(--surface);color:var(--text);border-color:var(--border)}
+.project-card-top,.preview-loading,.preview-tree .selected,.storage-note,.projects-empty,.release-badge,.local-pill{background:var(--panel);color:var(--text-muted);border-color:var(--border)}
+.landing p,.landing small,.landing .technical-label,.landing .site-nav,.landing .hero-trust,.landing .preview-status,.landing .preview-tree,.landing .section-description,.landing .preview-title,.projects-page p,.projects-page small,.project-card-body p,.storage-note p,.projects-empty p{color:var(--text-muted)}
+.landing h1,.landing h2,.landing h3,.projects-page h1,.projects-page h2,.projects-page h3{color:var(--text)}
+:root[data-theme=dark] .landing :is(.workflow-section,.precision-section,.local-section,.formats-section,.final-cta,.site-footer,.feature-section,.hero-visual){background:var(--surface);border-color:var(--border)}
+:root[data-theme=dark] .landing :is(.precision-card,.local-card,.feature-card,.format-chip,.stat-card,.example-card){background:var(--panel);border-color:var(--border);color:var(--text)}
+.theme-toggle{color:var(--text);border:1px solid var(--border);background:var(--panel)}
+@media(max-width:650px){.editor-shell .orientation-widget{right:10px;bottom:62px;width:104px}.editor-shell .orientation-cube{width:104px;height:100px}.editor-shell .cube-turn-up,.editor-shell .cube-turn-down{left:42px}.editor-shell .cube-turn-left,.editor-shell .cube-turn-right{top:44px}.editor-header-right{gap:3px}.editor-header .document-subtitle{display:none}}
+
+.editor-shell .sketch-dimension-label rect{fill:var(--raised);stroke:var(--border)}.editor-shell .sketch-dimension-label text{fill:var(--text)}.editor-shell .button-dark .cad-tool-icon{color:white}.editor-shell .guest-avatar{background:var(--panel);border-color:var(--border);color:var(--text)}
+
+.editor-shell .cad-toolbar.cad-ribbon{background:var(--surface);border-color:var(--border)}.editor-shell .cad-toolbar.cad-ribbon.sketch-ribbon{background:var(--panel)}.editor-shell .cad-toolbar.cad-ribbon .tool-button.active{background:var(--active);border-color:var(--border);color:var(--text)}.editor-shell .sketch-palette-options>strong{color:var(--text)}.editor-shell .canvas-inputs>small{color:var(--text-muted)}.editor-shell .command-search-trigger kbd{background:var(--panel);color:var(--text-muted);border-color:var(--border)}
+.landing section,.landing .site-footer{background:var(--surface);border-color:var(--border)}.landing :is(.hero-visual,.precision-visual,.local-visual,.workflow-visual,.feature-visual,.file-art,.file-drawing,.device-outline,.device-top,.local-node,.preview-stage,.format-extension,.release-note,.getting-started){background:var(--panel);border-color:var(--border);color:var(--text)}.landing :is(.section-heading p,.step-heading p,.precision-points p,.device-note,.local-section p,.footer-links,.hero-description){color:var(--text-muted)}.landing :is(.local-section h2,.local-section h3,.precision-number,.precision-section h2,.step-heading h3){color:var(--text)}
+
+@media(max-width:650px){.landing .header-actions{gap:5px}.landing .site-header{gap:7px}.landing .brand{font-size:15px;gap:6px}.landing .brand>svg{width:27px;height:27px}.landing .header-actions>.button-small{padding:8px;font-size:10px;min-height:34px}.landing .header-actions>.button-small>svg{display:none}}
+
+/* Shared popup surfaces: menus live outside the ribbon's themed selectors. */
+.cad-command-menu{background:var(--raised);border-color:var(--border);color:var(--text);box-shadow:0 12px 34px #0004}
+.cad-command-menu button,.command-search-results button{color:var(--text)}
+.cad-command-menu button .cad-tool-icon{color:currentColor}
+.cad-command-menu button:hover:not(:disabled),.cad-command-menu button:focus-visible,.command-search-results button:hover:not(:disabled),.command-search-results button:focus-visible{background:var(--hover);color:var(--text)}
+.cad-command-menu button:disabled,.command-search-results button:disabled{color:var(--text-muted);opacity:1;cursor:not-allowed}
+.cad-command-menu button:disabled .cad-tool-icon{opacity:.65}
+.cad-command-menu kbd,.command-search-input kbd,.command-search-results kbd{background:var(--panel);color:var(--text-muted);border-color:var(--border)}
+.command-search-input{background:var(--input);border-color:var(--border);color:var(--text)}
+.command-search-input input{color:var(--text)}
+.command-search-input input::placeholder,.command-search-results span{color:var(--text-muted)}
+/* Landing illustrations and badges share the same palette as the live viewport. */
+.landing :is(.floating-spec,.mini-chip,.validation-tag,.preview-fit){background:var(--raised);border-color:var(--border);color:var(--text)}
+.landing :is(.workflow-art,.solid-art,.spec-icon){background:var(--panel);border-color:var(--border);color:var(--text)}
+.landing :is(.floating-spec strong,.local-node strong,.local-copy .inline-link,.hero-copy h1>span){color:var(--text)}
+.landing :is(.model-caption,.step-heading>span,.precision-number>span,.precision-number small,.precision-visual>span,.precision-points,.formats-list>div,.site-footer>span,.preview-tree>span,.dimension-tag,.dimension-tag span){color:var(--text-muted)}
+.landing :is(.hero-trust,.capability-band,.file-drawing,.local-node,.spec-icon)>svg{color:var(--text-muted)}
+.landing .workflow-art text{fill:var(--text-muted)}
+.landing .precision-scale{border-color:var(--border)}.landing .precision-scale i,.landing .caption-line,.landing .tree-line{background:var(--border)}
+.landing .getting-started li>span{color:var(--text-muted);border-color:var(--border)}
+.landing .preview-axis b:nth-child(1){color:var(--axis-x)}.landing .preview-axis b:nth-child(2){color:var(--axis-y)}.landing .preview-axis b:nth-child(3){color:var(--axis-z)}
+/* App-colored scrollbars, including popup and inspector scroll containers. */
+:root{--scroll-thumb:#8b9bac;--scroll-thumb-hover:#65798e}
+:root[data-theme=dark]{--scroll-thumb:#637991;--scroll-thumb-hover:#8fa5be}
+*{scrollbar-width:thin;scrollbar-color:var(--scroll-thumb) var(--panel)}
+@supports selector(::-webkit-scrollbar){
+ *{scrollbar-width:auto;scrollbar-color:auto}
+ ::-webkit-scrollbar{width:10px;height:10px}
+ ::-webkit-scrollbar-track{background:var(--panel)}
+ ::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border:2px solid var(--panel);border-radius:8px}
+ ::-webkit-scrollbar-thumb:hover{background:var(--scroll-thumb-hover)}
+ ::-webkit-scrollbar-corner{background:var(--panel)}
+}
+select{background:var(--input);color:var(--text);border:1px solid var(--border);border-radius:6px}
+/* Customizable select retains native semantics with a fully CSS-rendered popup. */
+@supports (appearance:base-select){
+ select,select::picker(select){appearance:base-select}
+ select{align-items:center;gap:8px;cursor:pointer;padding:8px 10px}
+ select::picker-icon{color:var(--text-muted);transition:rotate .15s}
+ select:open::picker-icon{rotate:180deg}
+ select::picker(select){background:var(--raised);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:5px;box-shadow:0 10px 28px #0004;max-height:min(320px,50dvh);overflow:auto;min-width:anchor-size(width)}
+ select option{padding:8px 10px;min-height:34px;border-radius:4px;gap:10px;background:var(--raised);color:var(--text);font:inherit}
+ select option:hover,select option:focus{background:var(--hover);outline:none}
+ select option:checked{background:var(--active);color:var(--text)}
+ select option:disabled{color:var(--text-muted);opacity:.7}
+ select option::checkmark{color:var(--sketch-blue)}
+}
+@media(prefers-reduced-motion:reduce){select::picker-icon{transition:none}}
+
+.loft-sections{border:1px solid var(--border);border-radius:8px;padding:10px;margin:0 0 16px;color:var(--text)}.loft-sections legend{padding:0 5px;font-size:12px}.loft-section{padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:10px}.loft-section .field{margin-bottom:8px}.loft-section-actions{display:flex;gap:6px}.loft-section-actions button{font-size:11px;padding:5px 7px;background:var(--panel);border:1px solid var(--border);border-radius:5px}.loft-section-actions button:hover:not(:disabled){background:var(--hover)}
+
+.cad-tree-feature-row .sketch-visibility{opacity:1;flex-shrink:0}.cad-tree-feature-row .sketch-visibility:hover{background:var(--hover)}
+
+.sketch-tool-options{position:absolute;top:88px;left:18px;z-index:3;background:var(--surface);padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:11px}.sketch-tool-options label{display:flex;align-items:center;gap:10px}.sketch-tool-options input{width:70px;background:var(--input);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:5px}.entity-dimensions small{display:block;color:var(--text-muted);margin-top:6px}
+
+.measurement-overlay{position:absolute;inset:0;pointer-events:none;z-index:6;color:var(--text)}.measurement-overlay[hidden]{display:none}.measurement-overlay>svg{position:absolute;width:100%;height:100%;overflow:hidden}.measurement-overlay>svg>path{fill:none;stroke:currentColor;stroke-width:1.3}.measurement-callout{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:grab;touch-action:none;background:var(--raised);color:var(--text);border:1px solid var(--border);border-radius:5px;padding:7px 11px;font:12px Consolas,monospace;box-shadow:0 3px 9px #0002;white-space:nowrap}.measurement-callout:active{cursor:grabbing}.sketch-dimension-label [role=button]{cursor:move;touch-action:none}
+
+.editor-shell .sketch-ribbon-tools{display:flex;gap:8px;flex:1;min-width:0;overflow-x:auto;align-self:stretch;padding-bottom:3px}.editor-shell .cad-ribbon.sketch-ribbon{overflow:hidden}.editor-shell .sketch-cancel,.editor-shell .sketch-finish{flex-shrink:0}
+
+.cad-tool-browser{max-height:64vh;overflow:auto;padding:2px}.cad-tool-browser section+section{margin-top:19px}.cad-tool-browser h3{font-size:13px;margin:0 0 9px;color:var(--text)}.cad-tool-browser section>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.cad-tool-browser button{display:flex;align-items:flex-start;gap:10px;text-align:left;padding:12px;background:var(--panel);border:1px solid var(--border);border-radius:7px;color:var(--text)}.cad-tool-browser button:hover:not(:disabled){background:var(--hover)}.cad-tool-browser button:disabled{opacity:1;color:var(--text-muted)}.cad-tool-browser .cad-tool-icon{color:inherit}.cad-tool-browser strong{display:block;font-size:12px}.cad-tool-browser small{display:block;font-size:10px;line-height:1.5;margin-top:5px;color:var(--text-muted)}@media(max-width:600px){.cad-tool-browser section>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.editor-shell .sketch-references path,.editor-shell .sketch-references circle{stroke:var(--text);stroke-width:1.3;fill:none}.editor-shell .sketch-references text{font:10px Consolas,monospace;fill:var(--text);paint-order:stroke;stroke:var(--canvas);stroke-width:3px;stroke-linejoin:round}.editor-shell .sketch-snap-indicator rect{fill:none;stroke:var(--selection);stroke-width:2}.editor-shell .sketch-snap-indicator text{fill:var(--text)}.sketch-origin{position:absolute;bottom:20px;left:20px;z-index:2;font-size:11px;min-height:30px;padding:7px 10px}
+
+/* Local sketch-plane translation handles and explicit selection. */
+.sketch-move-handles{--move-axis:var(--text);cursor:grab;touch-action:none}
+.sketch-move-handles g:active{cursor:grabbing}
+.sketch-move-handles path{stroke:var(--move-axis);stroke-width:2.5;fill:var(--move-axis)}
+.sketch-move-handles .move-hit{stroke:transparent;stroke-width:18;fill:none}
+.sketch-move-handles text{fill:var(--move-axis);font-size:12px;font-weight:700;stroke:var(--canvas);stroke-width:3px;paint-order:stroke;pointer-events:none}
+.sketch-move-handles rect{fill:var(--surface);stroke:var(--text);stroke-width:2}
+.sketch-move-handles .sketch-move-x{--move-axis:#ef645e}
+.sketch-move-handles .sketch-move-y{--move-axis:#45b97c}
+.sketch-move-handles g:focus-visible{outline:2px solid var(--selection);outline-offset:4px}
+.sketch-selection-box{fill:var(--sketch-blue);fill-opacity:.12;stroke:var(--sketch-blue);stroke-width:1;stroke-dasharray:5 3}
+.sketch-selection-actions{position:absolute;bottom:48px;left:12px;display:flex;gap:6px;z-index:2}
+.sketch-selection-actions .button{font-size:10px;padding:6px 8px}

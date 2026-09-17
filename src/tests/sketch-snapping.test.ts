@@ -1,0 +1,7 @@
+import {it,expect} from 'vitest'
+import {sketchSnapPoints,snapSketchPoint} from '../cad/sketch-snapping'
+import {planeFrame} from '../cad/planes'
+import type {ModelResult} from '../cad/types'
+it('origin and circle centers snap exactly before grid rounding, even at fractional coordinates',()=>{const points=sketchSnapPoints(planeFrame('XY'),null,[{id:'c',type:'circle',center:[12.25,8.75],radius:3}]);expect(snapSketchPoint([.2,-.3],points,10,true).point).toEqual([0,0]);const snap=snapSketchPoint([12.3,8.8],points,10,true);expect(snap.point).toEqual([12.25,8.75]);expect(snap.target?.kind).toBe('center');expect(snapSketchPoint([12.3,8.8],[],10,false).point).toEqual([12.3,8.8])})
+it('face centers are in the local sketch frame and off-plane geometry is excluded',()=>{const model={edges:[],faces:[{center:[10,20,5],normal:[0,0,1]},{center:[10,20,0],normal:[0,0,-1]}]} as unknown as ModelResult;const points=sketchSnapPoints(planeFrame('XY',5),model);expect(points.filter(p=>p.kind==='face-center').map(p=>p.point)).toEqual([[10,20]]);expect(points.some(p=>p.label==='Origin')).toBe(true)})
+it('line endpoints and midpoints can be snapped with geometric snapping independent from grid',()=>{const points=sketchSnapPoints(planeFrame('XY'),null,[{id:'l',type:'line',start:[10.2,2.4],end:[20.4,6.8]}]);const p=snapSketchPoint([15.31,4.62],points,20,false);expect(p.point[0]).toBeCloseTo(15.3);expect(p.point[1]).toBeCloseTo(4.6);expect(p.target?.kind).toBe('midpoint');expect(snapSketchPoint([100.2,100.3],points,20,true).point).toEqual([100,100])})

@@ -1,0 +1,10 @@
+import type {CadDocument,ModelResult,SketchFeature,Vec3,Point2,PlaneFrame} from './types'
+import {entityPoints,primitiveEntities,sketchRegions} from './sketch-entities'
+import {resolveSketchPlane,sketchToWorld,planeFrame} from './planes'
+export interface DisplaySketch {id:string;name:string;frame:PlaneFrame;regions:{id?:string;outer:Point2[];holes:Point2[][]}[];lines:{points:Vec3[];construction:boolean}[]}
+export function consumedSketches(doc:CadDocument){const used=new Set<string>();for(const f of doc.features){if(f.type==='extrude'||f.type==='revolve'||f.type==='sweep'||f.type==='hole'){const id=f.parameters.profileId??(f.type==='extrude'?doc.features.find(v=>v.type==='sketch')?.id:undefined);if(id)used.add(id);if(f.type==='sweep')used.add(f.parameters.pathId)}if(f.type==='loft')for(const s of f.parameters.sections)used.add(s.profileId)}return used}
+export function sketchIsVisible(sketch:SketchFeature,consumed:Set<string>,active:Set<string>=new Set()){return active.has(sketch.id)||sketch.parameters.display==='visible'||(sketch.parameters.display!=='hidden'&&!consumed.has(sketch.id))}
+export function displaySketches(doc:CadDocument,model:ModelResult|null,active:Set<string>=new Set()):DisplaySketch[]{
+ const consumed=consumedSketches(doc)
+ return doc.features.filter((f):f is SketchFeature=>f.type==='sketch'&&sketchIsVisible(f,consumed,active)).map(f=>{const p=resolveSketchPlane(f.parameters,doc.features),frame=model?.sketches?.find(s=>s.id===f.id)?.frame;if(p.support&&!frame)return {id:f.id,name:f.name,frame:planeFrame(p.plane),regions:[],lines:[]};const placed={...p,frame:p.support?frame:undefined},entities=p.entities??primitiveEntities(p);let regions:DisplaySketch['regions']=[];try{regions=sketchRegions(entities).map(r=>({id:p.entities?r.id:undefined,outer:r.outer.points,holes:r.holes.map(h=>h.points)}))}catch{/* Open paths still display as selectable outlines. */}return {id:f.id,name:f.name,frame:p.support?frame!:planeFrame(p.plane,p.offset??0),regions,lines:entities.map(e=>({construction:!!e.construction,points:entityPoints(e).map(v=>sketchToWorld(placed,v[0],v[1],p.support?0:p.offset??0))}))}})
+}

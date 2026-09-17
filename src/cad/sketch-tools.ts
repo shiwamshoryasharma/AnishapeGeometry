@@ -1,0 +1,14 @@
+import type {Point2,SketchEntity} from './types'
+import {validateEntities} from './sketch-entities'
+export function polygonEntities(center:Point2,radius:number,sides:number,angle:number):SketchEntity[]{
+ if(!Number.isInteger(sides)||sides<3||sides>64||!Number.isFinite(radius)||radius<.001||!Number.isFinite(angle))throw Error('Polygon needs 3–64 sides, a positive radius and a finite angle.')
+ const points:Point2[]=Array.from({length:sides},(_,i)=>{const a=angle+i*2*Math.PI/sides;return [center[0]+radius*Math.cos(a),center[1]+radius*Math.sin(a)]}),entities:SketchEntity[]=points.map((start,i)=>({id:crypto.randomUUID(),type:'line',start,end:points[(i+1)%sides]}));validateEntities(entities);return entities
+}
+export function slotEntities(start:Point2,end:Point2,width:number):SketchEntity[]{
+ const length=Math.hypot(end[0]-start[0],end[1]-start[1]);if(length<.001||!Number.isFinite(width)||width<.001)throw Error('Slot needs distinct end centers and a positive width.')
+ const u:Point2=[(end[0]-start[0])/length,(end[1]-start[1])/length],n:Point2=[-u[1]*width/2,u[0]*width/2],plus=(p:Point2,sign:number):Point2=>[p[0]+n[0]*sign,p[1]+n[1]*sign],a=plus(start,1),b=plus(end,1),c=plus(end,-1),d=plus(start,-1)
+ const entities:SketchEntity[]=[{id:crypto.randomUUID(),type:'line',start:a,end:b},{id:crypto.randomUUID(),type:'arc',start:b,mid:[end[0]+u[0]*width/2,end[1]+u[1]*width/2],end:c},{id:crypto.randomUUID(),type:'line',start:c,end:d},{id:crypto.randomUUID(),type:'arc',start:d,mid:[start[0]-u[0]*width/2,start[1]-u[1]*width/2],end:a}];validateEntities(entities);return entities
+}
+function copy(entities:SketchEntity[],point:(p:Point2)=>Point2){return entities.map((e):SketchEntity=>e.type==='point'?{...e,id:crypto.randomUUID(),position:point(e.position)}:e.type==='circle'?{...e,...(e.dimension?{dimension:point(e.dimension)}:{}),id:crypto.randomUUID(),center:point(e.center)}:e.type==='arc'?{...e,...(e.dimension?{dimension:point(e.dimension)}:{}),id:crypto.randomUUID(),start:point(e.start),mid:point(e.mid),end:point(e.end)}:{...e,...(e.dimension?{dimension:point(e.dimension)}:{}),id:crypto.randomUUID(),start:point(e.start),end:point(e.end)})}
+export function mirrorEntities(entities:SketchEntity[],axis:'X'|'Y',offset:number){if(!Number.isFinite(offset)||!['X','Y'].includes(axis))throw Error('Invalid mirror axis or offset.');const result=copy(entities,p=>axis==='X'?[p[0],2*offset-p[1]]:[2*offset-p[0],p[1]]);validateEntities(result);return result}
+export function patternEntities(entities:SketchEntity[],count:number,dx:number,dy:number){if(!Number.isInteger(count)||count<2||count>64||entities.length*count>256)throw Error('Pattern needs 2–64 instances and at most 256 total entities.');if(!Number.isFinite(dx)||!Number.isFinite(dy)||Math.hypot(dx,dy)<.001)throw Error('Pattern spacing cannot be zero.');const result=Array.from({length:count-1},(_,i)=>copy(entities,p=>[p[0]+dx*(i+1),p[1]+dy*(i+1)])).flat();validateEntities(result);return result}

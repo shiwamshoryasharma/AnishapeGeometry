@@ -1,0 +1,93 @@
+AnishapeGeometry Personal Noncommercial License
+Version 1.0 — 17 September 2026
+
+Copyright (c) 2026 Shiwam Shorya Sharma and other applicable contributors.
+All rights reserved except as expressly granted below.
+
+1. Scope
+
+This license applies to the original AnishapeGeometry source code, documentation,
+and other original materials supplied under this license (the "Software"). It does
+not relicense third-party components, which remain governed by their own licenses.
+"You" means the individual exercising the permissions below.
+
+2. Permission for personal use
+
+Subject to these terms, the applicable copyright holders grant You a worldwide,
+nonexclusive, royalty-free license to download, inspect, run, copy, and modify the
+Software solely for Your own personal, noncommercial learning, experimentation,
+and private projects. You may keep personal backups and privately modified copies.
+You must retain copyright notices, this license, and applicable third-party notices.
+
+3. No commercial use or commercial delivery
+
+Without prior written permission from the applicable copyright holders, You may not
+use the Software, its modifications, or a service incorporating it:
+
+(a) in a business, employment, consulting, contracting, or other commercial activity;
+(b) to earn revenue, obtain commercial advantage, or support a commercial product
+    or service, even if access to the Software itself is provided free of charge;
+(c) to create, process, or deliver models, assets, robot descriptions, simulation
+    results, or other deliverables for a customer, client, employer, or business;
+(d) as part of paid services, hosted services, resale, sublicensing, bundling, or
+    delivery of a product to a third party.
+
+Commercial permission is not granted by the public availability of this repository.
+
+4. No redistribution or third-party delivery
+
+The personal-use grant does not permit You to publish, redistribute, sublicense,
+sell, supply, or deliver the Software, modified versions, or compiled builds to
+others, whether for a fee or free of charge, without prior written permission.
+You may instead link others to the copyright holders' official repository.
+
+Exceptions: You may use the repository host's ordinary viewing and fork features
+for personal, noncommercial study, and submit proposed changes to the official
+project through its contribution mechanisms. Such copies must retain this license
+and the applicable notices. These exceptions do not authorize separately hosting
+software downloads, distributing builds, offering hosted services, or commercial use.
+This license does not revoke rights independently granted under the repository
+host's applicable terms of service.
+
+5. Output and third-party rights
+
+This license does not transfer ownership of Your original models, assets, or other
+output to the copyright holders. However, the permission to use the Software is
+limited by sections 2–4; ownership of output does not authorize using the Software
+for commercial work or third-party commercial deliverables.
+
+Third-party code, libraries, and assets are governed exclusively by their respective
+licenses. The restrictions in this license do not restrict permissions granted for
+those components by their own licenses. Nothing here limits rights required by an
+applicable third-party license, including modification, replacement, relinking, or
+reverse engineering for debugging modifications to LGPL-covered libraries, or
+rights that applicable law does not allow to be restricted. See THIRD_PARTY_NOTICES.md.
+
+6. Separate permission and reserved rights
+
+Any use outside the permissions above requires a separate written license from the
+applicable copyright holders. No trademark rights or other rights are granted by
+implication. The applicable copyright holders may distribute their own work or grant
+separate permissions under different terms.
+
+7. Termination
+
+The permissions under this license terminate automatically if You violate its terms.
+Upon termination, stop using the Software and delete copies held under this license,
+except where retention is required by law or independently permitted by another
+applicable license. Sections 5, 6, 8, and 9 survive termination.
+
+8. No warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+The Software is experimental. No accuracy, fitness for engineering use, or simulation
+correctness is warranted.
+
+9. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM THE SOFTWARE OR ITS USE.
+
+Official repository: https://github.com/shiwamshoryasharma/AnishapeGeometry
